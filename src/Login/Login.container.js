@@ -10,12 +10,18 @@ const EnhanceLogin = props => {
   const [pswdStrength, setPswdStrength] = useState(0);
   const [styleProgressBar, setStyleProgressBar] = useState({});
   const history = useHistory();
+  const [hideErrorMessage, setHideErrorMessage] = useState({
+    visibility: "hidden"
+  });
 
   const formHandler = e => {
     e.preventDefault();
     if (email === "bcatouillard@gmail.com" && password === "123abc123") {
       history.push("/dashboard");
     } else {
+      setHideErrorMessage({
+        visibility: "visible"
+      });
     }
   };
 
@@ -43,6 +49,7 @@ const EnhanceLogin = props => {
       setPswdStrength={setPswdStrength}
       styleProgressBar={styleProgressBar}
       formHandler={formHandler}
+      hideErrorMessage={hideErrorMessage}
     />
   );
 };

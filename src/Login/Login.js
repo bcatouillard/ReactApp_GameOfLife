@@ -11,7 +11,8 @@ const Login = ({
   setPassword,
   pswdStrength,
   styleProgressBar,
-  formHandler
+  formHandler,
+  hideErrorMessage
 }) => (
   <>
     <Header subtitle={subtitle} />
@@ -34,15 +35,14 @@ const Login = ({
           placeholder="Password"
         />
         <h3>Password strength</h3>
-        <div
-          className="password-strength__bar-container"
-          style={styleProgressBar}
-        >
+        <div className="password-strength__bar-container">
           <div className="password-strength__bar " style={styleProgressBar}>
             <span className="password-strength__value">{pswdStrength}</span>
           </div>
         </div>
-        <h3 className="login__error login__error--hide">Bad credentials</h3>
+        <h3 className="login__error " style={hideErrorMessage}>
+          Bad credentials
+        </h3>
         <button className="login__button">Login</button>
       </form>
     </div>
