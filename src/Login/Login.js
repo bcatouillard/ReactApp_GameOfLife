@@ -10,12 +10,13 @@ const Login = ({
   password,
   setPassword,
   pswdStrength,
-  setPswdStrength
+  styleProgressBar,
+  formHandler
 }) => (
   <>
     <Header subtitle={subtitle} />
     <div className="login">
-      <form className="login">
+      <form className="login" onSubmit={formHandler}>
         <label for="email">Login</label>
         <input
           type="email"
@@ -33,13 +34,11 @@ const Login = ({
           placeholder="Password"
         />
         <h3>Password strength</h3>
-        <progress
-          className="password-strength__progress"
-          max="5"
-          value={pswdStrength}
-        ></progress>
-        <div className="password-strength__bar-container">
-          <div className="password-strength__bar">
+        <div
+          className="password-strength__bar-container"
+          style={styleProgressBar}
+        >
+          <div className="password-strength__bar " style={styleProgressBar}>
             <span className="password-strength__value">{pswdStrength}</span>
           </div>
         </div>
